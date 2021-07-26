@@ -8,9 +8,10 @@ import { FilterControl, BulkAction } from '../../utils';
 interface SectionFilterProps extends Partial<PageProps>, StoreProps {
     selectAllP?: StoreStates['selectAllP'];
     filterP?: StoreStates['filterP'];
+    selectedIdsP?: StoreStates['selectedIdsP'];
 }
 
-@withStore(['selectAllP', 'filterP'])
+@withStore(['selectAllP', 'filterP', 'selectedIdsP'])
 export class SectionFilter extends React.Component<SectionFilterProps, any> {
     constructor(props: SectionFilterProps) {
         super(props);
@@ -36,11 +37,12 @@ export class SectionFilter extends React.Component<SectionFilterProps, any> {
     };
 
     render() {
-        const { selectAllP } = this.props;
+        const { selectAllP, selectedIdsP } = this.props;
         const { handleSearch, toggleSelectAll } = this;
 
         // Style
         const borderNone = { border: 0 };
+        const disabled = selectedIdsP?.length === 0;
         return (
             <FilterControl
                 input={{ placeholder: 'Search profile..' }}
@@ -51,14 +53,14 @@ export class SectionFilter extends React.Component<SectionFilterProps, any> {
                         style={borderNone}
                         type='link'
                         children='Move to group'
-                        disabled={!selectAllP}
+                        disabled={disabled}
                         onClick={() => console.log('move to group')}
                     />
                     <Button
                         style={borderNone}
                         type='link'
                         children='Transfer'
-                        disabled={!selectAllP}
+                        disabled={disabled}
                         onClick={() => console.log('Transfer')}
                     />
                 </BulkAction>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { ProfilesTypes } from './types';
 import { withStore } from '@/core/store';
 
-import { SectionFilter } from './components';
+import { SectionFilter, DataTable } from './components';
 const Container = styled.div`
     padding: 0 16px 16px;
 `;
@@ -13,6 +13,8 @@ const Container = styled.div`
 interface ProfilesProps extends Partial<PageProps>, StoreProps {
     filterP?: {
         search: string;
+        limit: number;
+        paged: number;
     };
 }
 
@@ -40,11 +42,11 @@ export default class Profiles extends React.Component<
     }, 300);
 
     render() {
-        const { filterP } = this.props;
-
+        const { filterP: filter } = this.props;
         return (
             <Container>
                 <SectionFilter />
+                <DataTable filterP={filter} />
             </Container>
         );
     }

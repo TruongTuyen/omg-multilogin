@@ -26,6 +26,13 @@ const Container = styled.div`
             border: 0;
             background-color: transparent;
             box-shadow: none;
+
+            &:after {
+                outline: 0 !important;
+                box-shadow: none !important;
+                border: 0 !important;
+                background: #fff !important;
+            }
         }
     }
 
