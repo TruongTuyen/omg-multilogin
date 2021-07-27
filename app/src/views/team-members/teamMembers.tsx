@@ -1,12 +1,14 @@
 import React from 'react';
 import { PageHeader } from 'antd';
 
+import Members from '../../components/Members';
+
 export default class TeamMembers extends React.Component {
     render(): JSX.Element {
-        console.log('team-members');
         return (
             <div>
                 <PageHeader title='Team members' />
+                <Members />
             </div>
         );
     }
