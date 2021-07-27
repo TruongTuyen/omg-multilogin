@@ -1,0 +1,42 @@
+[
+    {
+        "id": "o*MPV2$#yi9t1",
+        "key": "o*MPV2$#yi9t1",
+        "name": "Group 01",
+        "profiles": 12,
+        "updatedAt": "2021-07-31T00:00:00.000Z",
+        "pinned": true
+    },
+    {
+        "id": "Tp$stPDu8VTm1",
+        "key": "Tp$stPDu8VTm1",
+        "name": "Group 02",
+        "profiles": 12,
+        "updatedAt": "2021-08-01T00:00:00.000Z",
+        "pinned": true
+    },
+    {
+        "id": "dXi#sSqdd4z41",
+        "key": "dXi#sSqdd4z41",
+        "name": "Group 03",
+        "profiles": 12,
+        "updatedAt": "2021-08-02T00:00:00.000Z",
+        "pinned": false
+    },
+    {
+        "id": "@e1s0&6#GVyX1",
+        "key": "@e1s0&6#GVyX1",
+        "name": "Group 04",
+        "profiles": 12,
+        "updatedAt": "2021-08-03T00:00:00.000Z",
+        "pinned": false
+    },
+    {
+        "id": "SDWsw@nvELv51",
+        "key": "SDWsw@nvELv51",
+        "name": "Group 05",
+        "profiles": 12,
+        "updatedAt": "2021-08-04T00:00:00.000Z",
+        "pinned": true
+    }
+]

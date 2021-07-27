@@ -31,17 +31,41 @@
 // ----------------------------------------------------------
 
 .ant-btn {
-  &.ant-btn-primary {
-    &[disabled] {
-      background-color: lighten(@color_primary, 20);
-      color: @color_white;
-      border-color: lighten(@color_primary, 10);
+    &.ant-btn-primary {
+        &[disabled] {
+            background-color: lighten(@color_primary, 20);
+            color: @color_white;
+            border-color: lighten(@color_primary, 10);
+        }
     }
-  }
 }
 
 .ant-message {
-  display: flex;
-  justify-content: center;
-  padding-top: @titlebar_height + @padding_layout;
+    display: flex;
+    justify-content: center;
+    padding-top: @titlebar_height + @padding_layout;
+}
+
+//
+@fontFamily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+@paddingAntd: 16px 24px;
+
+.ant-modal-close {
+    color: #00000073;
+}
+
+.btn-not-outline {
+    &:after {
+        outline: 0 !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        background-color: #fff !important;
+    }
+}
+
+.ant-popover-inner-content {
+    background-color: #fff;
 }
