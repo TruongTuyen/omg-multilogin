@@ -4,5 +4,17 @@
         "href": "#/profiles",
         "title": "All profiles",
         "icon": "home-3"
+    },
+    {
+        "key": "TeamMembers",
+        "href": "#/team-members",
+        "title": "Team members",
+        "icon": "group"
+    },
+    {
+        "key": "Demo",
+        "href": "#/",
+        "title": "All profiles",
+        "icon": "home-3"
     }
 ]

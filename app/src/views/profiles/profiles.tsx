@@ -3,6 +3,7 @@ import { PageHeader, TabPaneProps } from 'antd';
 
 import { TabsComponent } from '../../components/utils';
 import ProfilesComponent from '../../components/Profiles';
+import GroupComponent from '../../components/Group';
 
 import './profiles.less';
 
@@ -16,7 +17,7 @@ export default class Profiles extends React.Component<PageProps> {
         {
             tabKey: 'groups',
             tab: 'Groups',
-            children: <p>Groups content</p>,
+            children: <GroupComponent />,
         },
         {
             tabKey: 'unassigned',

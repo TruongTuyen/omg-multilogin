@@ -13,7 +13,7 @@ interface DataTableProps extends Partial<PageProps>, StoreProps {
     filterP?: StoreStates['filterP'];
 }
 
-@withStore(['selectAllP'])
+@withStore(['selectAllP', 'filterP'])
 export class DataTable extends React.Component<DataTableProps> {
     handleChange = () => {};
 
