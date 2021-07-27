@@ -1,9 +1,12 @@
 import React from 'react';
 import { PageHeader, TabPaneProps } from 'antd';
 
-import { TabsComponent } from '../../components/utils';
-import ProfilesComponent from '../../components/Profiles';
 import GroupComponent from '../../components/Group';
+import { TabsComponent } from '../../components/utils';
+import {
+    TabUnassigned,
+    TabAllProfiles,
+} from '../../components/Profiles/components';
 
 import './profiles.less';
 
@@ -12,7 +15,7 @@ export default class Profiles extends React.Component<PageProps> {
         {
             tabKey: 'all-profiles',
             tab: 'All profiles',
-            children: <ProfilesComponent />,
+            children: <TabAllProfiles />,
         },
         {
             tabKey: 'groups',
@@ -22,7 +25,7 @@ export default class Profiles extends React.Component<PageProps> {
         {
             tabKey: 'unassigned',
             tab: 'Unassigned',
-            children: <p>Unassigned content</p>,
+            children: <TabUnassigned />,
         },
     ];
 

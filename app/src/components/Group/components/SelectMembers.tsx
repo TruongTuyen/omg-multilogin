@@ -94,7 +94,6 @@ export class SelectMember extends React.Component<any, SelectMemberState> {
 
     render() {
         const { data } = this.state;
-        console.log('data', data);
 
         return (
             <Container>

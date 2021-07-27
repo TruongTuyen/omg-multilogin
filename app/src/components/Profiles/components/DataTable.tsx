@@ -11,6 +11,7 @@ import { NameContainer } from './NameContainer';
 interface DataTableProps extends Partial<PageProps>, StoreProps {
     selectAllP?: StoreStates['selectAllP'];
     filterP?: StoreStates['filterP'];
+    data: any[];
 }
 
 @withStore(['selectAllP', 'filterP'])
@@ -18,7 +19,7 @@ export class DataTable extends React.Component<DataTableProps> {
     handleChange = () => {};
 
     render() {
-        const { selectAllP, dispatch, filterP: filter } = this.props;
+        const { selectAllP, dispatch, filterP: filter, data } = this.props;
 
         const columns = [
             {
@@ -67,17 +68,17 @@ export class DataTable extends React.Component<DataTableProps> {
         return (
             <Table
                 rowSelection={rowSelection}
-                dataSource={PROFILE_DATA}
+                dataSource={data}
                 columns={columns}
                 onChange={this.handleChange}
-                style={{ marginTop: '2rem' }}
+                style={{ marginTop: '1.5rem' }}
                 expandable={{
                     expandedRowRender: (record) => (
                         <NameContainer record={record} />
                     ),
                 }}
                 pagination={{
-                    total: PROFILE_DATA.length,
+                    total: data.length,
                     pageSize: filter?.limit,
                     onChange(page, pageSize) {
                         dispatch?.({

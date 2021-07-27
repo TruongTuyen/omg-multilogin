@@ -4,21 +4,24 @@ import { Button, Form, Input } from 'antd';
 import { SelectMember } from './SelectMembers';
 
 interface FormGroupProps {
+    loading?: boolean;
+    value?: any;
     onClose?: () => void;
+    onSubmit: (values: any) => void;
 }
 
 export class FormGroup extends React.Component<FormGroupProps> {
     handleFinish = (values) => {
-        console.log('values', values);
+        this.props.onSubmit(values);
     };
 
     render() {
         const { handleFinish } = this;
-        const { onClose } = this.props;
+        const { onClose, value, loading } = this.props;
         return (
             <Form
                 layout='vertical'
-                initialValues={{ name: '' }}
+                initialValues={{ name: value?.name ?? '' }}
                 onFinish={handleFinish}
             >
                 <Form.Item
@@ -40,6 +43,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
                         type='primary'
                         htmlType='submit'
                         style={{ marginRight: '1rem' }}
+                        loading={loading}
                     />
                     <Button children='Cancel' onClick={onClose} />
                 </Form.Item>

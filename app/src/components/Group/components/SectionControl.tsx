@@ -39,7 +39,7 @@ export class SectionControl extends React.Component<any, SectionControlState> {
 
         return (
             <Container>
-                <Input placeholder='Search groups...' />
+                <Input placeholder='Search group...' />
                 <Button
                     type='link'
                     onClick={toggleOpenModal}
@@ -57,7 +57,7 @@ export class SectionControl extends React.Component<any, SectionControlState> {
                     }}
                     footer={null}
                 >
-                    <FormGroup onClose={toggleOpenModal} />
+                    <FormGroup onClose={toggleOpenModal} onSubmit={() => {}} />
                 </Modal>
             </Container>
         );

@@ -5,7 +5,8 @@
         "name": "107.174.248.10",
         "status": "Activate",
         "updatedAt": "2021-07-31T00:00:00.000Z",
-        "note": "note of item 1"
+        "note": "note of item 1",
+        "assigned": false
     },
     {
         "id": "Tp$stPDu8VTm",
@@ -13,7 +14,8 @@
         "name": "107.174.248.11",
         "status": "Deactivate",
         "updatedAt": "2021-08-01T00:00:00.000Z",
-        "note": "note of item 2"
+        "note": "note of item 2",
+        "assigned": false
     },
     {
         "id": "dXi#sSqdd4z4",
@@ -21,7 +23,8 @@
         "name": "107.174.248.12",
         "status": "Activate",
         "updatedAt": "2021-08-02T00:00:00.000Z",
-        "note": "note of item 3"
+        "note": "note of item 3",
+        "assigned": true
     },
     {
         "id": "@e1s0&6#GVyX",
@@ -29,7 +32,8 @@
         "name": "107.174.248.13",
         "status": "Deactivate",
         "updatedAt": "2021-08-03T00:00:00.000Z",
-        "note": "note of item 4"
+        "note": "note of item 4",
+        "assigned": true
     },
     {
         "id": "SDWsw@nvELv5",
@@ -37,7 +41,8 @@
         "name": "107.174.248.14",
         "status": "Activate",
         "updatedAt": "2021-08-04T00:00:00.000Z",
-        "note": "note of item 5"
+        "note": "note of item 5",
+        "assigned": false
     },
     {
         "id": "wRCjD8sS7@U8",
@@ -45,7 +50,8 @@
         "name": "107.174.248.15",
         "status": "Deactivate",
         "updatedAt": "2021-08-05T00:00:00.000Z",
-        "note": "note of item 6"
+        "note": "note of item 6",
+        "assigned": false
     },
     {
         "id": "K21WyDiY@mP3",
@@ -53,7 +59,8 @@
         "name": "107.174.248.16",
         "status": "Activate",
         "updatedAt": "2021-08-06T00:00:00.000Z",
-        "note": "note of item 7"
+        "note": "note of item 7",
+        "assigned": false
     },
     {
         "id": "Ah0MmdTL3fe2",
@@ -61,7 +68,8 @@
         "name": "107.174.248.17",
         "status": "Deactivate",
         "updatedAt": "2021-08-07T00:00:00.000Z",
-        "note": "note of item 8"
+        "note": "note of item 8",
+        "assigned": false
     },
     {
         "id": "Alg!P32wzLDq",
@@ -69,7 +77,8 @@
         "name": "107.174.248.18",
         "status": "Activate",
         "updatedAt": "2021-08-08T00:00:00.000Z",
-        "note": "note of item 9"
+        "note": "note of item 9",
+        "assigned": true
     },
     {
         "id": "YANsFVHf@lze",
@@ -77,7 +86,8 @@
         "name": "107.174.248.19",
         "status": "Deactivate",
         "updatedAt": "2021-08-09T00:00:00.000Z",
-        "note": "note of item 10"
+        "note": "note of item 10",
+        "assigned": false
     },
     {
         "id": "2!FBlXwYO77g",
@@ -85,7 +95,8 @@
         "name": "107.174.248.110",
         "status": "Activate",
         "updatedAt": "2021-08-10T00:00:00.000Z",
-        "note": "note of item 11"
+        "note": "note of item 11",
+        "assigned": true
     },
     {
         "id": "KoS%D3NEsXrK",
@@ -93,7 +104,8 @@
         "name": "107.174.248.111",
         "status": "Deactivate",
         "updatedAt": "2021-08-11T00:00:00.000Z",
-        "note": "note of item 12"
+        "note": "note of item 12",
+        "assigned": false
     },
     {
         "id": "61kTYgHaPMfw",
@@ -101,7 +113,8 @@
         "name": "107.174.248.112",
         "status": "Activate",
         "updatedAt": "2021-08-12T00:00:00.000Z",
-        "note": "note of item 13"
+        "note": "note of item 13",
+        "assigned": false
     },
     {
         "id": "dc*^pMtMW8HP",
@@ -109,7 +122,8 @@
         "name": "107.174.248.113",
         "status": "Deactivate",
         "updatedAt": "2021-08-13T00:00:00.000Z",
-        "note": "note of item 14"
+        "note": "note of item 14",
+        "assigned": false
     },
     {
         "id": "5#u^YwZBW6!t",
@@ -117,7 +131,8 @@
         "name": "107.174.248.114",
         "status": "Activate",
         "updatedAt": "2021-08-14T00:00:00.000Z",
-        "note": "note of item 15"
+        "note": "note of item 15",
+        "assigned": false
     },
     {
         "id": "0Wmm^6sA!Omc",
@@ -125,7 +140,8 @@
         "name": "107.174.248.115",
         "status": "Deactivate",
         "updatedAt": "2021-08-15T00:00:00.000Z",
-        "note": "note of item 16"
+        "note": "note of item 16",
+        "assigned": false
     },
     {
         "id": "ADlJWSUVaIgF",
@@ -133,7 +149,8 @@
         "name": "107.174.248.116",
         "status": "Activate",
         "updatedAt": "2021-08-16T00:00:00.000Z",
-        "note": "note of item 17"
+        "note": "note of item 17",
+        "assigned": false
     },
     {
         "id": "Zw7HykrCGAwJ",
@@ -141,7 +158,8 @@
         "name": "107.174.248.117",
         "status": "Deactivate",
         "updatedAt": "2021-08-17T00:00:00.000Z",
-        "note": "note of item 18"
+        "note": "note of item 18",
+        "assigned": true
     },
     {
         "id": "hEOulHh0VunU",
@@ -149,7 +167,8 @@
         "name": "107.174.248.118",
         "status": "Activate",
         "updatedAt": "2021-08-18T00:00:00.000Z",
-        "note": "note of item 19"
+        "note": "note of item 19",
+        "assigned": true
     },
     {
         "id": "pDt$V7Vg@4o*",
@@ -157,6 +176,7 @@
         "name": "107.174.248.119",
         "status": "Deactivate",
         "updatedAt": "2021-08-19T00:00:00.000Z",
-        "note": "note of item 20"
+        "note": "note of item 20",
+        "assigned": true
     }
 ]
