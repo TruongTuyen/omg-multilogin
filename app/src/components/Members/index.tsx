@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Header } from './components';
+import { Header, DataTable } from './components';
 
 const Container = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border-top: 1px solid #dcdcdc;
     padding: 24px;
 `;
@@ -15,6 +15,7 @@ export default class Members extends React.Component {
         return (
             <Container>
                 <Header />
+                <DataTable />
             </Container>
         );
     }

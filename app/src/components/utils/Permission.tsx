@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select } from 'antd';
 
-import { PERMISSIONS } from '../../../constants';
+import { PERMISSIONS } from '../../constants';
 
 const { Option } = Select;
 
@@ -10,20 +10,21 @@ export interface PermissionItem {
     label: string;
 }
 
-interface PermissionSelectState {
+interface PermissionState {
     permission: PermissionItem[];
     defaultValue?: PermissionItem['value'];
 }
 
-interface PermissionSelectProps {
+interface PermissionProps {
     onChange?: (value: PermissionItem['value']) => void;
+    value?: PermissionItem['value'];
 }
 
-export class PermissionSelect extends React.Component<
-    PermissionSelectProps,
-    PermissionSelectState
+export class Permission extends React.Component<
+    PermissionProps,
+    PermissionState
 > {
-    state: PermissionSelectState = {
+    state: PermissionState = {
         permission: [],
         defaultValue: undefined,
     };
@@ -31,9 +32,14 @@ export class PermissionSelect extends React.Component<
     componentDidMount() {
         const data = [...PERMISSIONS];
         const [first] = data;
-        this.setState({ permission: data, defaultValue: first.value });
 
-        this.props.onChange?.(first.value);
+        // Props
+        const { value } = this.props;
+        const defaultValue = value ?? first.value;
+
+        this.setState({ permission: data, defaultValue });
+
+        this.props.onChange?.(defaultValue);
     }
 
     handleChange = (value) => {

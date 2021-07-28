@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
 
-import { SelectMember } from './SelectMembers';
+import { MemberSelect } from './MemberSelect';
 
 interface FormGroupProps {
     loading?: boolean;
@@ -18,6 +18,13 @@ export class FormGroup extends React.Component<FormGroupProps> {
     render() {
         const { handleFinish } = this;
         const { onClose, value, loading } = this.props;
+
+        const selectMemberLabel = (
+            <div>
+                <strong>Select members to allow access </strong>
+                <span>(You can set permissions later.)</span>
+            </div>
+        );
         return (
             <Form
                 layout='vertical'
@@ -34,8 +41,8 @@ export class FormGroup extends React.Component<FormGroupProps> {
                     <Input placeholder='Enter group name' />
                 </Form.Item>
 
-                <Form.Item label='Select members to allow access (You can set permissions later.)'>
-                    <SelectMember />
+                <Form.Item label={selectMemberLabel}>
+                    <MemberSelect />
                 </Form.Item>
                 <Form.Item>
                     <Button

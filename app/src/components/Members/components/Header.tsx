@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'antd';
 import styled from 'styled-components';
 
-import { FormMember } from './Form';
+import FormMember from './Form';
 
 const Container = styled.div`
     width: 100%;
@@ -32,8 +32,10 @@ export class Header extends React.Component<any, HeaderState> {
     toggleOpen = () => {
         this.setState((prev) => ({ ...prev, open: !prev.open }));
     };
+
+    handleSubmit = () => {};
     render() {
-        const { toggleOpen } = this;
+        const { toggleOpen, handleSubmit } = this;
         const { open } = this.state;
         return (
             <Container>
@@ -55,7 +57,10 @@ export class Header extends React.Component<any, HeaderState> {
                         paddingBottom: 0,
                     }}
                 >
-                    <FormMember toggleOpen={toggleOpen} />
+                    <FormMember
+                        toggleOpen={toggleOpen}
+                        onSubmit={handleSubmit}
+                    />
                 </Modal>
             </Container>
         );

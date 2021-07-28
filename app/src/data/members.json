@@ -3,28 +3,54 @@
         "id": "o*MPV2$#yi9t",
         "key": "o*MPV2$#yi9t",
         "name": "John",
-        "mail": "john2021@gmail.com",
+        "email": "john2021@gmail.com",
+        "status": "Activate",
+        "groups": [
+            {
+                "id": "o*MPV2$#yi9t1",
+                "permission": "PDu8VTmTp$st2"
+            },
+            {
+                "id": "Tp$stPDu8VTm1",
+                "permission": "PDu8VTmTp$st2"
+            },
+            {
+                "id": "dXi#sSqdd4z41",
+                "permission": "Tp$stPDu8VTm2"
+            }
+        ],
         "updatedAt": "2021-07-31T00:00:00.000Z"
     },
     {
         "id": "Tp$stPDu8VTm",
         "key": "Tp$stPDu8VTm",
         "name": "David",
-        "mail": "david2021@gmail.com",
+        "email": "david2021@gmail.com",
+        "status": "Deactivate",
+        "groups": [],
         "updatedAt": "2021-08-01T00:00:00.000Z"
     },
     {
         "id": "dXi#sSqdd4z4",
         "key": "dXi#sSqdd4z4",
         "name": "James",
-        "mail": "james2021@gmail.com",
+        "email": "james2021@gmail.com",
+        "status": "Activate",
+        "groups": [],
         "updatedAt": "2021-08-02T00:00:00.000Z"
     },
     {
         "id": "@e1s0&6#GVyX",
         "key": "@e1s0&6#GVyX",
         "name": "Jana",
-        "mail": "jana2021@gmail.com",
+        "email": "jana2021@gmail.com",
+        "status": "Deactivate",
+        "groups": [
+            {
+                "id": "o*MPV2$#yi9t1",
+                "permission": "PDu8VTmTp$st2"
+            }
+        ],
         "updatedAt": "2021-08-03T00:00:00.000Z"
     }
 ]
