@@ -2,6 +2,7 @@ import React from 'react';
 
 import { MoreAction, MoreActionProps } from '../../../utils/MoreAction';
 import { Edit } from './Edit';
+import { Delete } from './Delete';
 
 interface MoreActionsProps {
     record?: any[];
@@ -16,7 +17,7 @@ export const MoreActions = ({ record }: MoreActionsProps) => {
             },
             {
                 name: 'Delete',
-                render: <p>d</p>,
+                render: <Delete record={record} />,
             },
         ] as MoreActionProps['actions'];
     }, [record]);

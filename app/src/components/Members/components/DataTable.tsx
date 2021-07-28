@@ -40,10 +40,12 @@ export function DataTable() {
                 render: (record) => {
                     return (
                         <div className='status-wrap'>
-                            <i
-                                className='ri-check-fill fs-18'
-                                style={{ color: '#3e82db' }}
-                            />
+                            {record === 'Activate' && (
+                                <i
+                                    className='ri-check-fill fs-18'
+                                    style={{ color: '#3e82db' }}
+                                />
+                            )}
                             <span>{record}</span>
                         </div>
                     );
