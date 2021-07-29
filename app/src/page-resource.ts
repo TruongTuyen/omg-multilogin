@@ -15,6 +15,7 @@ export const NewProfile = import('./views/new-profile/new-profile');
 
 export const Profiles = import('./views/profiles/profiles');
 export const TeamMembers = import('./views/team-members/teamMembers');
+export const MyAccount = import('./views/my-account/MyAccount');
 
 // 同步引用，注意这不会触发 beforeRouter
 export { default as AlertModal } from './views/modals/alert-modal';

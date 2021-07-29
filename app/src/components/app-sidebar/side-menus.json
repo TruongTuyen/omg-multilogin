@@ -12,9 +12,9 @@
         "icon": "group"
     },
     {
-        "key": "Demo",
-        "href": "#/",
-        "title": "All profiles",
-        "icon": "home-3"
+        "key": "MyAccount",
+        "href": "#/my-account",
+        "title": "My account",
+        "icon": "account-circle"
     }
 ]

@@ -1,11 +1,30 @@
-import React, { useCallback } from 'react';
+import React, { cloneElement, useCallback } from 'react';
 import { Button, notification } from 'antd';
 
-export const Clipboard = ({ value }: { value: string }) => {
+interface ClipboardProps {
+    value: string;
+    activator?: React.ReactElement;
+}
+
+export const Clipboard = ({ value, activator }: ClipboardProps) => {
     const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(value);
         notification.success({ message: 'Copied!' });
     }, [value]);
 
-    return <Button onClick={handleCopy} children='Copy' type='link' />;
+    // Markup
+    const newActivator = activator
+        ? cloneElement(activator, {
+              ...activator.props,
+              onClick: handleCopy,
+          })
+        : null;
+
+    const activatorMarkup = newActivator ? (
+        newActivator
+    ) : (
+        <Button onClick={handleCopy} children='Copy' type='link' />
+    );
+
+    return activatorMarkup;
 };
