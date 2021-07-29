@@ -16,5 +16,17 @@
         "href": "#/my-account",
         "title": "My account",
         "icon": "account-circle"
+    },
+    {
+        "key": "Plugins",
+        "href": "#/plugins",
+        "title": "Plugins",
+        "icon": "microsoft"
+    },
+    {
+        "key": "SupportCenter",
+        "href": "#/support-center",
+        "title": "Support center",
+        "icon": "information"
     }
 ]

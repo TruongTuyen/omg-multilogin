@@ -16,7 +16,7 @@ const MyAccount = () => {
             {
                 tabKey: 'references',
                 tab: 'References',
-                children: <p>references</p>,
+                children: <p>References tab.</p>,
             },
         ],
         []
