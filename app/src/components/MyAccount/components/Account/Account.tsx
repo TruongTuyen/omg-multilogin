@@ -13,8 +13,6 @@ import ACCOUNT_DATA from '../../../../data/account.json';
 import { ChangePassword, CancelPlan, TokenSection } from './actions';
 
 const Container = styled.div`
-    padding: 0 24px 24px;
-
     .ant-list-items {
         margin: 0 -24px;
     }

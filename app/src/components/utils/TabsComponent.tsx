@@ -14,7 +14,9 @@ export class TabsComponent extends React.Component<TabProps> {
             <Tabs defaultActiveKey='1'>
                 {tabs.map(({ tab, tabKey, children }: TabPaneProps) => (
                     <TabPane tab={tab} key={tabKey}>
-                        {children}
+                        <div style={{ paddingLeft: 35, paddingRight: 35 }}>
+                            {children}
+                        </div>
                     </TabPane>
                 ))}
             </Tabs>

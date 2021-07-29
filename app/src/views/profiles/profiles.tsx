@@ -8,8 +8,6 @@ import {
     TabAllProfiles,
 } from '../../components/Profiles/components';
 
-import './profiles.less';
-
 export default class Profiles extends React.Component<PageProps> {
     private tabs: TabPaneProps[] = [
         {

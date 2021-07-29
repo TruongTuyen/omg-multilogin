@@ -7,7 +7,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     border-top: 1px solid #dcdcdc;
-    padding: 24px;
+    padding: 24px 35px;
 `;
 
 export default class Members extends React.Component {

@@ -11,8 +11,6 @@ interface ProfilesProps {
 }
 
 const Container = styled.div`
-    padding: 0 1.5rem 1.5rem;
-
     .header-wrap {
         display: flex;
         flex-direction: row;
