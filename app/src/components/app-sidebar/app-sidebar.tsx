@@ -1,22 +1,27 @@
 import React from 'react';
 
 import AppSideMenus from './side-menus.json';
+import ProfileSideMenus from './profile-menus.json';
 import './app-sidebar.less';
 
 interface SideMenuItem {
     key: string;
     href: string;
     title: string;
-    icon: string;
+    icon?: string;
 }
 
 interface State {
     activeMenuKey: string;
+    newProfilePath: boolean;
 }
+
+const NEW_PROFILE_PATH = '/new-profile';
 
 export class AppSidebar extends React.Component<unknown, State> {
     state: State = {
         activeMenuKey: AppSideMenus[0]?.key,
+        newProfilePath: false,
     };
 
     componentDidMount(): void {
@@ -25,10 +30,15 @@ export class AppSidebar extends React.Component<unknown, State> {
 
     onRouterUpdate = (e: CustomEventMap['router-update']): void => {
         const routeProps: PageProps = e.detail;
-        this.setState({ activeMenuKey: routeProps.name });
+        const routePath = routeProps?.match?.path;
+        const newProfilePath = routePath.startsWith(NEW_PROFILE_PATH);
+        this.setState({ activeMenuKey: routeProps.name, newProfilePath });
     };
 
     render(): JSX.Element {
+        //
+        const { newProfilePath } = this.state;
+
         return (
             <div className='app-sidebar'>
                 <div className='app-sidebar-wrap'>
@@ -49,7 +59,9 @@ export class AppSidebar extends React.Component<unknown, State> {
                             </div>
                         </div>
                         <ul className='side-menu-ul'>
-                            {AppSideMenus.map(this.renderMenuItem)}
+                            {newProfilePath
+                                ? ProfileSideMenus.map(this.renderMenuItem)
+                                : AppSideMenus.map(this.renderMenuItem)}
                         </ul>
                     </div>
                 </div>
@@ -65,12 +77,15 @@ export class AppSidebar extends React.Component<unknown, State> {
     }: SideMenuItem): JSX.Element => {
         const { activeMenuKey } = this.state;
         const isActive = activeMenuKey === key;
+
+        const iconClassName = icon
+            ? `has-icon ri-${icon}-${isActive ? 'fill' : 'line'}`
+            : '';
+
         return (
             <li key={key} className={`side-menu-list`}>
                 <a
-                    className={`side-menu-item fs-22 ri-${icon}-${
-                        isActive ? 'fill' : 'line'
-                    }`}
+                    className={`side-menu-item fs-22 ${iconClassName}`}
                     style={{ color: isActive ? '#fff' : '' }}
                     href={href}
                 >

@@ -1,0 +1,32 @@
+[
+    {
+        "key": "Overview",
+        "href": "#/new-profile/overview",
+        "title": "Overview"
+    },
+    {
+        "key": "Proxy",
+        "href": "#/new-profile/proxy",
+        "title": "Proxy"
+    },
+    {
+        "key": "Timezone",
+        "href": "#/new-profile/timezone",
+        "title": "Timezone"
+    },
+    {
+        "key": "WebRTC",
+        "href": "#/new-profile/webRTC",
+        "title": "WebRTC"
+    },
+    {
+        "key": "Geolocation",
+        "href": "#/new-profile/geolocation",
+        "title": "Geolocation"
+    },
+    {
+        "key": "Advanced",
+        "href": "#/new-profile/advanced",
+        "title": "Advanced"
+    }
+]

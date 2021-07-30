@@ -18,6 +18,12 @@ export const TeamMembers = import('./views/team-members/teamMembers');
 export const MyAccount = import('./views/my-account/MyAccount');
 export const Plugins = import('./views/plugins/plugins');
 export const SupportCenter = import('./views/support-center/SupportCenter');
+export const Overview = import('./views/new-profile/overview');
+export const Proxy = import('./views/new-profile/proxy');
+export const Timezone = import('./views/new-profile/timezone');
+export const WebRTC = import('./views/new-profile/webRTC');
+export const Geolocation = import('./views/new-profile/geolocation');
+export const Advanced = import('./views/new-profile/advanced');
 
 // 同步引用，注意这不会触发 beforeRouter
 export { default as AlertModal } from './views/modals/alert-modal';
