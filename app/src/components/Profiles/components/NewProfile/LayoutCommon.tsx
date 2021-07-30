@@ -13,7 +13,6 @@ const Container = styled.div`
 
         .main-section {
             padding: 0 30px;
-            height: 2000px;
         }
 
         .second-section {
@@ -40,7 +39,7 @@ interface LayoutProps {
     actions?: React.ReactNode;
 }
 
-export function Layout({ children, second, actions }: LayoutProps) {
+export function Layout({ children, second }: LayoutProps) {
     return (
         <Container>
             <div className='content-section'>
@@ -52,7 +51,7 @@ export function Layout({ children, second, actions }: LayoutProps) {
                 >
                     <div className='main-section'>{children}</div>
                 </CustomScroll>
-                {second ? <div className='second-section'>{second}</div> : null}
+                <div className='second-section'>{second}</div>
             </div>
             <div className='footer-section'>
                 <Actions />

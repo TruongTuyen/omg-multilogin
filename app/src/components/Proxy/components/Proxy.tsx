@@ -1,8 +1,8 @@
-import { Alert } from 'antd';
 import React from 'react';
+import { Alert } from 'antd';
 import styled from 'styled-components';
 
-import { Layout } from '../../Profiles/components';
+import { Layout } from '../../Profiles';
 import { ProxyForm } from './Form';
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ const Container = styled.div`
 
 export const Proxy = () => {
     return (
-        <Layout second={<p>a</p>}>
+        <Layout>
             <Container>
                 <Alert
                     type='info'
