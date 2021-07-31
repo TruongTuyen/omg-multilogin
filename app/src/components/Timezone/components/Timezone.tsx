@@ -21,7 +21,7 @@ const Container = styled.div`
 type CountryType = Record<string, string>;
 
 export const Timezone = () => {
-    const [hasTimezone, setHasTimezone] = useState<boolean>(false);
+    const [hasTimezone, setHasTimezone] = useState<boolean>(true);
     const [countries, setCountries] = useState<CountryType[]>([]);
     const [country, setCountry] = useState<CountryType>({});
 
@@ -32,7 +32,6 @@ export const Timezone = () => {
             timezone,
             offset,
         }));
-        setCountry(countries[0]);
         setCountries(countries);
     }, [COUNTRIES]);
 
@@ -64,13 +63,14 @@ export const Timezone = () => {
                             </span>
                         </div>
                     </Form.Item>
-                    {hasTimezone ? (
+                    {!hasTimezone ? (
                         <div>
                             <Form.Item label='Timezone'>
                                 <Select
                                     value={country.value ?? null}
                                     onChange={handleTimezoneChange}
                                     dropdownStyle={{ backgroundColor: '#fff' }}
+                                    placeholder='Choose timezone'
                                 >
                                     {countries.map(
                                         ({ timezone, value, offset }) => (
