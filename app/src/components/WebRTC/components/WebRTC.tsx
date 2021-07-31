@@ -1,19 +1,12 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert, Input, Radio, Switch, Button } from 'antd';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Input, Switch, Button } from 'antd';
 import styled from 'styled-components';
 
 import { Layout } from '../../Profiles';
+import { AlertSection, ItemType } from '../../utils/AlertSection';
 
 const Container = styled.div`
     padding-top: 1rem;
-
-    h4 {
-        margin-bottom: 0.5rem;
-    }
-
-    .ant-alert {
-        margin-top: 0.75rem;
-    }
 
     .web-rtc-wrap {
         padding: 2rem 0;
@@ -36,7 +29,7 @@ const Container = styled.div`
 
             .ant-input {
                 margin-top: 0.35rem;
-                width: 20rem;
+                max-width: 20rem;
                 display: block;
             }
         }
@@ -51,7 +44,7 @@ const Container = styled.div`
 
     .local-ip-wrap {
         .ant-input {
-            width: 20rem;
+            max-width: 20rem;
         }
     }
 
@@ -66,21 +59,9 @@ const Container = styled.div`
             flex-direction: row;
             column-gap: 0.5rem;
             align-items: center;
-
-            // .ant-btn {
-            //     border: 0;
-            //     background-color: transparent;
-            //     box-shadow: none;
-            // }
         }
     }
 `;
-
-type TypeOfAlert = 'success' | 'info' | 'warning' | 'error';
-interface AlertType {
-    message: string;
-    type: TypeOfAlert;
-}
 
 interface WebRTCPublicIPProps {
     checked: boolean;
@@ -89,32 +70,32 @@ interface WebRTCPublicIPProps {
     setPublicIP: (value: string) => void;
 }
 
-const ALTERED: Record<string, string> & AlertType = {
-    value: 'altered',
-    label: 'Altered',
-    message:
-        'WebRTC plugin will be turned on and will falsely leak your actual external IP as a Public IP address. A valid Local IP will also be falsely leaked instead of your actual local IP address.',
-    type: 'info',
-};
-
-const DISABLED: Record<string, string> & AlertType = {
-    value: 'disabled',
-    label: 'Disabled',
-    message:
-        'WebRTC plugin will be turned off completely. Websites will see that you turned it off.',
-    type: 'warning',
-};
-
-const REAL: Record<string, string> & AlertType = {
-    value: 'real',
-    label: 'Real',
-    message:
-        "WebRTC plugin will be turned on and will leak your real IP. This mode is only recommended if you don't use proxies in your connection.",
-    type: 'warning',
-};
+const BEHAVIOR: ItemType[] = [
+    {
+        value: 'altered',
+        label: 'Altered',
+        message:
+            'WebRTC plugin will be turned on and will falsely leak your actual external IP as a Public IP address. A valid Local IP will also be falsely leaked instead of your actual local IP address.',
+        type: 'info',
+    },
+    {
+        value: 'disabled',
+        label: 'Disabled',
+        message:
+            'WebRTC plugin will be turned off completely. Websites will see that you turned it off.',
+        type: 'warning',
+    },
+    {
+        value: 'real',
+        label: 'Real',
+        message:
+            "WebRTC plugin will be turned on and will leak your real IP. This mode is only recommended if you don't use proxies in your connection.",
+        type: 'warning',
+    },
+];
 
 export const WebRTC = () => {
-    const [behavior, setBehavior] = useState<string>(ALTERED.value);
+    const [behavior, setBehavior] = useState<string>(BEHAVIOR[0].value);
     const [checked, setChecked] = useState<boolean>(false);
     const [publicIP, setPublicIP] = useState<string>('');
 
@@ -125,23 +106,18 @@ export const WebRTC = () => {
     }, []);
 
     // Variables
-    const isAltered = ALTERED.value === behavior;
-    const isReal = REAL.value === behavior;
+    const isAltered = 'altered' === behavior;
+    const isReal = 'real' === behavior;
 
     return (
         <Layout>
             <Container>
-                <h4>Behavior:</h4>
-                <Radio.Group value={behavior} onChange={handleBehaviorChange}>
-                    <Radio.Button value={ALTERED.value}>
-                        {ALTERED.label}
-                    </Radio.Button>
-                    <Radio.Button value={DISABLED.value}>
-                        {DISABLED.label}
-                    </Radio.Button>
-                    <Radio.Button value={REAL.value}>{REAL.label}</Radio.Button>
-                </Radio.Group>
-                <AlertSection behavior={behavior} />
+                <AlertSection
+                    data={BEHAVIOR}
+                    label='Behavior:'
+                    value={behavior}
+                    onChange={handleBehaviorChange}
+                />
                 {isAltered && (
                     <>
                         <WebRTCPublicIP
@@ -158,51 +134,6 @@ export const WebRTC = () => {
         </Layout>
     );
 };
-
-function AlertSection({ behavior }) {
-    const behaviorAlert = useMemo(() => {
-        let markup: AlertType | null = null;
-        switch (behavior) {
-            case ALTERED.value: {
-                let { message, type } = ALTERED;
-                markup = {
-                    message,
-                    type,
-                };
-                break;
-            }
-            case DISABLED.value: {
-                let { message, type } = DISABLED;
-                markup = {
-                    message,
-                    type,
-                };
-                break;
-            }
-            case REAL.value: {
-                let { message, type } = REAL;
-                markup = {
-                    message,
-                    type,
-                };
-                break;
-            }
-
-            default:
-                return;
-        }
-
-        return markup;
-    }, [behavior]);
-
-    return (
-        <Alert
-            message={behaviorAlert?.message}
-            type={behaviorAlert?.type}
-            showIcon
-        />
-    );
-}
 
 function WebRTCPublicIP({
     checked,
