@@ -1,6 +1,6 @@
 const routes: RouteConfig[] = [
     {
-        key: 'NewProfile',
+        key: 'Overview',
         path: '/new-profile',
         windowOptions: {
             title: 'New Profile',
@@ -17,14 +17,14 @@ const routes: RouteConfig[] = [
             hideMenus: true,
         },
     },
-    {
-        key: 'Overview',
-        path: '/new-profile/overview',
-        createConfig: {
-            showTitlebar: true,
-            hideMenus: true,
-        },
-    },
+    // {
+    //     key: 'Overview',
+    //     path: '/new-profile/overview',
+    //     createConfig: {
+    //         showTitlebar: true,
+    //         hideMenus: true,
+    //     },
+    // },
     {
         key: 'Proxy',
         path: '/new-profile/proxy',

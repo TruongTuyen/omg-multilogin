@@ -30,3 +30,9 @@ export * from './app-sidebar';
 //     "title": "About",
 //     "icon": "information"
 // }],
+
+// {
+//     "key": "Overview",
+//     "href": "#/new-profile/overview",
+//     "title": "Overview"
+// },
