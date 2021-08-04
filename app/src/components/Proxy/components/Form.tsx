@@ -2,13 +2,18 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Select, Form, Button, Input, Row, Col } from 'antd';
 
 import PROXIES from '../../../data/proxies.json';
+import { context } from '../../Profiles/components/NewProfile';
 
 type ProxyType = Record<string, string | number>;
 
 export function ProxyForm() {
     const [form] = Form.useForm();
     const [data, setData] = useState<ProxyType[]>([]);
-    const [connectType, setConnectType] = useState(2);
+    const [connectType, setConnectType] = useState(PROXIES[0].label); //
+
+    // Context
+    const profileContext = React.useContext(context);
+    const dispatch = profileContext?.[1];
 
     // Did mount
     useEffect(() => {
@@ -21,14 +26,35 @@ export function ProxyForm() {
         console.log(values);
     }, []);
 
-    const handleConnectTypeChange = useCallback(
-        (value) => setConnectType(value),
-        []
+    const handleConnectTypeChange = useCallback((_, { id }) => {
+        setConnectType(id);
+    }, []);
+
+    const handleValuesChange = useCallback((value, values) => {
+        let { address, port, proxy } = values;
+        address = address ?? '';
+        port = port ?? '';
+        const prefix = address ? [address, port].filter(Boolean).join(':') : '';
+
+        proxy = [prefix, proxy].filter(Boolean).join(' / ');
+        updateContext({ proxy });
+    }, []);
+
+    const updateContext = useCallback(
+        (values) => {
+            dispatch?.({ type: 'Update', payload: { ...values } });
+        },
+        [dispatch]
     );
 
     return (
-        <Form form={form} layout='vertical' onFinish={handleSubmit}>
-            <Form.Item label='Connect type'>
+        <Form
+            form={form}
+            layout='vertical'
+            onFinish={handleSubmit}
+            onValuesChange={handleValuesChange}
+        >
+            <Form.Item label='Connect type' name='proxy'>
                 <Select
                     dropdownStyle={{ backgroundColor: '#fff' }}
                     onChange={handleConnectTypeChange}
@@ -37,14 +63,15 @@ export function ProxyForm() {
                     {data.map((option) => (
                         <Select.Option
                             key={`proxy-${option.value}`}
-                            value={option.value}
+                            id={option.value}
+                            value={option.label}
                         >
                             {option.label}
                         </Select.Option>
                     ))}
                 </Select>
             </Form.Item>
-            {connectType !== 1 ? (
+            {connectType !== PROXIES[0].label ? (
                 <>
                     <p
                         style={{ marginBottom: '1rem' }}

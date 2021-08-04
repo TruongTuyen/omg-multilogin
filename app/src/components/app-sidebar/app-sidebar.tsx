@@ -48,15 +48,33 @@ export class AppSidebar extends React.Component<unknown, State> {
 
                     <div className='flex column side-menu'>
                         <div className='side-quick-actions'>
-                            <h3 className='side-title'>Brower profile</h3>
-                            <div className='side-actions'>
-                                <a
-                                    className='action-create-new'
-                                    href='#/new-profile'
-                                >
-                                    Create new
-                                </a>
-                            </div>
+                            {newProfilePath ? (
+                                <>
+                                    <a
+                                        href='#/profiles'
+                                        style={{ color: '#fff' }}
+                                    >
+                                        <i className='ri-home-3-fill fs-30'></i>
+                                    </a>
+                                    <h3 className='side-title'>
+                                        New brower profile
+                                    </h3>
+                                </>
+                            ) : (
+                                <>
+                                    <h3 className='side-title'>
+                                        Brower profile
+                                    </h3>
+                                    <div className='side-actions'>
+                                        <a
+                                            className='action-create-new'
+                                            href='#/new-profile'
+                                        >
+                                            Create new
+                                        </a>
+                                    </div>
+                                </>
+                            )}
                         </div>
                         <ul className='side-menu-ul'>
                             {newProfilePath

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import CustomScroll from 'react-custom-scrollbars';
 
 import { Actions } from './Actions';
+import { ProfileSummary } from './ProfileSummary';
 
 const Container = styled.div`
     .content-section {
@@ -16,7 +16,7 @@ const Container = styled.div`
         }
 
         .second-section {
-            width: 35%;
+            max-width: 30rem;
             border-left: 1px solid #dcdcdc;
             padding: 0 30px;
         }
@@ -35,11 +35,10 @@ const Container = styled.div`
 
 interface LayoutProps {
     children: React.ReactNode;
-    second?: React.ReactNode;
     actions?: React.ReactNode;
 }
 
-export function Layout({ children, second }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
     return (
         <Container>
             <div className='content-section'>
@@ -51,7 +50,9 @@ export function Layout({ children, second }: LayoutProps) {
                 >
                     <div className='main-section'>{children}</div>
                 </CustomScroll>
-                <div className='second-section'>{second}</div>
+                <div className='second-section'>
+                    <ProfileSummary />
+                </div>
             </div>
             <div className='footer-section'>
                 <Actions />

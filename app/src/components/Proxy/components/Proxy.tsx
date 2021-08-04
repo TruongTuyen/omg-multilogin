@@ -2,6 +2,8 @@ import React from 'react';
 import { Alert } from 'antd';
 import styled from 'styled-components';
 
+import { ProfileContext } from '../../Profiles/components/NewProfile';
+
 import { Layout } from '../../Profiles';
 import { ProxyForm } from './Form';
 
@@ -17,15 +19,17 @@ const Container = styled.div`
 
 export const Proxy = () => {
     return (
-        <Layout>
-            <Container>
-                <Alert
-                    type='info'
-                    showIcon
-                    message='A proxy masks the IP address of a browser profile.'
-                />
-                <ProxyForm />
-            </Container>
-        </Layout>
+        <ProfileContext>
+            <Layout>
+                <Container>
+                    <Alert
+                        type='info'
+                        showIcon
+                        message='A proxy masks the IP address of a browser profile.'
+                    />
+                    <ProxyForm />
+                </Container>
+            </Layout>
+        </ProfileContext>
     );
 };

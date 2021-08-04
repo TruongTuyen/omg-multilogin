@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
     Button,
     Form,
@@ -15,6 +15,7 @@ import styled from 'styled-components';
 import GROUPS from '../../../data/groups.json';
 
 import { Layout } from '../../Profiles';
+import { ProfileContext, context } from '../../Profiles/components/NewProfile';
 
 type StatusType = 'Activate' | 'Deactivate';
 interface FingerPrintItemType {
@@ -91,24 +92,34 @@ const Container = styled.div`
     }
 `;
 
-export const Overview = () => {
+export const Overview: React.FunctionComponent = () => {
     const [form] = Form.useForm();
-
     // State
     const [groups, setGroups] = useState<any[]>([]);
+    const contextN = React.useContext(context);
+    const dispatch = contextN?.[1];
 
     // Handle actions
     useEffect(() => {
         const groups = [...GROUPS].map(({ id, name }) => ({ value: id, name }));
         setGroups(groups);
     }, []);
+    const handleValuesChange = useCallback(
+        (_, values) => {
+            dispatch?.({
+                type: 'Update',
+                payload: { ...values },
+            });
+        },
+        [dispatch]
+    );
 
     // Markup
     const systemMarkup = useMemo(() => {
         return (
             <Radio.Group>
                 {Object.entries(SYSTEMS).map(([key, value]) => (
-                    <Radio value={key} key={`system-${key}`}>
+                    <Radio value={value} key={`system-${key}`}>
                         {value}
                     </Radio>
                 ))}
@@ -120,7 +131,7 @@ export const Overview = () => {
         return (
             <Radio.Group>
                 {Object.entries(BROWSER).map(([key, value]) => (
-                    <Radio.Button value={key} key={`browser-${key}`}>
+                    <Radio.Button value={value} key={`browser-${key}`}>
                         {value}
                     </Radio.Button>
                 ))}
@@ -128,8 +139,8 @@ export const Overview = () => {
         );
     }, []);
 
-    const firstSystem = Object.keys(SYSTEMS).shift(); // Get first item
-    const lastBrowser = Object.keys(BROWSER).pop(); // Get last item
+    const firstSystem = SYSTEMS.macOs; //Object.keys(SYSTEMS).shift(); // Get first item
+    const lastBrowser = BROWSER.mimic; //Object.keys(BROWSER).pop(); // Get last item
 
     return (
         <Layout>
@@ -137,9 +148,9 @@ export const Overview = () => {
                 <Form
                     form={form}
                     layout='vertical'
-                    onValuesChange={(...args) => console.log(args)}
+                    onValuesChange={handleValuesChange}
                     initialValues={{
-                        system: firstSystem,
+                        os: firstSystem,
                         browser: lastBrowser,
                         fingerPrint: true,
                     }}
@@ -148,7 +159,7 @@ export const Overview = () => {
                         <Col span={12}>
                             <Form.Item
                                 label='Browser profile name'
-                                name='browser-name'
+                                name='profileName'
                             >
                                 <Input placeholder='Enter browser profile name' />
                             </Form.Item>
@@ -168,7 +179,7 @@ export const Overview = () => {
                             </Form.Item>
                         </Col>
                     </Row>
-                    <Form.Item label='Operation system:' name='system'>
+                    <Form.Item label='Operation system:' name='os'>
                         {systemMarkup}
                     </Form.Item>
                     <Form.Item label='Browser:' name='browser'>
@@ -297,5 +308,13 @@ function FingerPrintItem() {
                 {geolocation.description}
             </Collapse.Panel>
         </Collapse>
+    );
+}
+
+export default function WrapOverView() {
+    return (
+        <ProfileContext>
+            <Overview />
+        </ProfileContext>
     );
 }
