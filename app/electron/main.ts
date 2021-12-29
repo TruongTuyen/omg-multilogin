@@ -174,3 +174,10 @@ ipcMain.on('runCommand', async (event, arg) => {
 	test2()
 });
 
+ipcMain.on('get_data', (event, arg) => {
+	console.log('Args: ', arg);
+	setInterval(() => {
+		event.reply('asynchronous-reply', 'pong')
+	}, 2000);
+});
+

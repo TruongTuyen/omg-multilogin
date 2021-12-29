@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Dropdown, Menu } from 'antd';
 import styled from 'styled-components';
+const { ipcRenderer } = window.require('electron');
 
 const { Item } = Menu;
 
@@ -26,7 +27,16 @@ const Container = styled.div`
 `;
 
 export class MoreActions extends React.Component<any, any> {
-    handleClick = () => {};
+	constructor(props) {
+		super(props);
+		ipcRenderer.on('asynchronous-reply', (event, arg) => {
+			console.log("Frontend got data: ", arg)
+		})
+	}
+    handleClick = () => {
+		ipcRenderer.send("get_data", { product: 'notebook' });
+		// ipcRenderer.sendSync('synchronous-message', 'ping')
+	};
     render() {
         const { handleClick } = this;
 
