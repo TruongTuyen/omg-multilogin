@@ -159,7 +159,7 @@ var test2 = async function () {
 
 	// http://api.ipify.org/
 	await page.goto(
-		"https://findmylocation.org",
+		"https://getip.pro/",
 		{
 			waitUntil: "networkidle0",
 			timeout: 0,
@@ -176,6 +176,7 @@ ipcMain.on('runCommand', async (event, arg) => {
 
 ipcMain.on('get_data', (event, arg) => {
 	console.log('Args: ', arg);
+	test2();
 	setInterval(() => {
 		event.reply('asynchronous-reply', 'pong')
 	}, 2000);
